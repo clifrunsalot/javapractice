@@ -1,7 +1,7 @@
 /**
  * 
  */
-package refresher.com;
+package refresher.practice.oo;
 
 /**
  * @author clif

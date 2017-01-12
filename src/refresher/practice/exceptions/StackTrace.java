@@ -1,7 +1,7 @@
 /**
  * 
  */
-package refresher.javacollections.com;
+package refresher.practice.exceptions;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -10,17 +10,17 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import refresher.practice.helpers.LogIt;
+
 /**
  * @author clif
  *
  */
-public class ExceptionExamples {
+public class StackTrace {
 
-	private static void logIt(String s) {
-		System.out.println(s);
-	}
+    static LogIt logger = new LogIt(StackTrace.class.getName()).getLogger();
 
-	private static void useExceptions() {
+    private static void useExceptions() {
 
 		try {
 
@@ -35,33 +35,33 @@ public class ExceptionExamples {
 
 		} catch (NullPointerException | NumberFormatException e) {
 			if (e instanceof NullPointerException) {
-				logIt("caught npe");
+				logger.error("caught npe");
 			} else if (e instanceof NumberFormatException) {
-				logIt("caught iobe");
+				logger.error("caught iobe");
 			}
 		} finally {
-			logIt("Done");
+			logger.info("Done");
 		}
 
 		final String myFile = "C:\\Users\\clif\\workspace\\java_practice\\src\\refresher\\armediatest\\com\\event.txt";
 		String line = "";
 		try (BufferedReader br = new BufferedReader(new FileReader(myFile))) {
 			while ((line = br.readLine()) != null) {
-				System.out.println(line);
+				logger.info(line);
 				if (line.contains("kittens")) {
-					System.out.println("found kitten");
+					logger.info("found kitten");
 				}
 			}
 		} catch (IOException e) {
-			e.printStackTrace();
+			logger.error(e.getLocalizedMessage());
 		} finally {
-			System.out.println("Done reading file");
+			logger.info("Done reading file");
 		}
 
 	}
 
 	public static void main(String[] args) {
-		ExceptionExamples.useExceptions();
+		StackTrace.useExceptions();
 	}
 
 }

@@ -1,29 +1,31 @@
 /**
  * 
  */
-package refresher.javacollections.com;
+package refresher.practice.collections.arrays;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+
+import refresher.practice.helpers.LogIt;
 
 /**
  * @author clif
  *
  */
-public class Question7 {
+public class SumPower {
 
 	/**
-	 * Filters values that meet criteria. Assumes 0 <= lowest < highest. This
-	 * will strip the negative sign, essentially converting any negative number
-	 * into a positive number.
+	 * Returns an array of all integers between lowest and highest where each
+	 * value equals the sum of each digit to the power of the value's length.
+	 * 
+	 * e.g. (-10, 153) => [153]
 	 * 
 	 * @param lowest
-	 *            - An integer that is < highest.
+	 *            - An integer that is 0 < x < highest.
 	 * @param highest
 	 *            - An integer that is > lowest.
 	 * @return An array of integers that satisfy criteria.
 	 */
-	public static int[] findNumberEqualToSumOfDigitsToPowerOfLength(int lowest, int highest) {
+	public static int[] findSumPower(int lowest, int highest) {
 
 		ArrayList<Integer> tmpAry = new ArrayList<Integer>();
 		int power = 0;
@@ -31,6 +33,8 @@ public class Question7 {
 		int tmpValue = 0;
 		int tmpSum = 0;
 		char[] parsedNumber = null;
+		lowest = Math.abs(lowest);
+		highest = Math.abs(highest);
 
 		for (int i = lowest; i <= highest; i++) {
 
@@ -69,14 +73,25 @@ public class Question7 {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		int[] sortedAry = Question7.findNumberEqualToSumOfDigitsToPowerOfLength(-10, 153);
-		System.out.println("Array of Values: " + Arrays.toString(sortedAry));
-		sortedAry = Question7.findNumberEqualToSumOfDigitsToPowerOfLength(10, 999);
-		System.out.println("Array of Values: " + Arrays.toString(sortedAry));
-		sortedAry = Question7.findNumberEqualToSumOfDigitsToPowerOfLength(10, 999999);
-		System.out.println("Array of Values: " + Arrays.toString(sortedAry));
-		sortedAry = Question7.findNumberEqualToSumOfDigitsToPowerOfLength(999999, 999999);
-		System.out.println("Array of Values: " + Arrays.toString(sortedAry));
+
+		LogIt logger = new LogIt(SumPower.class.getName());
+
+		int lowest = -10;
+		int highest = 153;
+		logger.info("findSumPower", "" + -10 + "," + highest, LogIt.toIntString(findSumPower(lowest, highest)));
+
+		lowest = 10;
+		highest = 999;
+		logger.info("findSumPower", "" + -10 + "," + highest, LogIt.toIntString(findSumPower(lowest, highest)));
+
+		lowest = 10;
+		highest = 999999;
+		logger.info("findSumPower", "" + -10 + "," + highest, LogIt.toIntString(findSumPower(lowest, highest)));
+
+		lowest = 999999;
+		highest = 999999;
+		logger.info("findSumPower", "" + -10 + "," + highest, LogIt.toIntString(findSumPower(lowest, highest)));
+
 	}
 
 }
