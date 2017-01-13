@@ -3,19 +3,12 @@
  */
 package refresher.practice.collections.arrays;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Stack;
-
-import refresher.practice.binary.Conversion;
 import refresher.practice.helpers.LogIt;
 
+import java.util.*;
+
 /**
- * @author clif
+ * Miscellaneous examples of collections.
  */
 public class CollectionExamples {
 
@@ -57,6 +50,7 @@ public class CollectionExamples {
      * Parses string into a sorted list of words.
      *
      * @param msg The string to convert into a ordered list of words.
+     * @return A sorted string array.
      */
     private static String convertStringIntoSortedList(String msg) {
 
@@ -72,6 +66,7 @@ public class CollectionExamples {
      * Sorts list of numbers.
      *
      * @param nums The integer array.
+     * @return A sorted list of integers.
      */
     private static String convertNumbersIntoSortedList(int[] nums) {
 
@@ -88,6 +83,7 @@ public class CollectionExamples {
      * Converts int array into a hashmap with duplicates identified.
      *
      * @param nums Integer array to parse.
+     * @return A string version of the map.
      */
     private static String useMapToFindDuplicateNumbers(int[] nums) {
 
@@ -111,6 +107,7 @@ public class CollectionExamples {
      * Converts string into a hashmap with word instances identified.
      *
      * @param msg The string to parse.
+     * @return A string version of the map.
      */
     private static String useMapToFindDuplicateWords(String msg) {
 
@@ -137,6 +134,7 @@ public class CollectionExamples {
      * @param input   The string to test.
      * @param opening The opening character of the pair.
      * @param closing The closing character of the pair.
+     * @return True if input has all matching pairs, else false.
      */
     public static boolean hasMatchingBrackets(String input, char opening, char closing) {
 
@@ -188,7 +186,7 @@ public class CollectionExamples {
      * Returns true if the number is a factorial.
      *
      * @param num The integer to test.
-     * @return true is number is a factorial.
+     * @return true if number is a factorial.
      */
     private static boolean isFactorial(int num) {
 
