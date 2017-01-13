@@ -1,16 +1,18 @@
 package refresher.practice.collections;
 
-import refresher.practice.binary.Conversion;
 import refresher.practice.helpers.LogIt;
 
 public class ZipDecimal {
 
-    /*
+    /**
      * Returns a new decimal representing the merge between A and B.
      * such that:
-     *
+     * <p>
      * (a=123, b=456) => 142536
      *
+     * @param A An integer.
+     * @param B An integer.
+     * @return An integer merged from A and B.
      */
     private static int zipIt(int A, int B) {
 
