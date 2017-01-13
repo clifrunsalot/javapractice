@@ -1,11 +1,16 @@
 package refresher.practice.collections;
 
-import refresher.practice.binary.Conversion;
 import refresher.practice.helpers.LogIt;
 
 public class SearchString {
 
-    // Returns the index of find in inHere or -1.
+    /**
+     * Returns the index of find in inHere or -1.
+     *
+     * @param find   The string to find.
+     * @param inHere The string to search within.
+     * @return The index of the substring or -1 if not found.
+     */
     private static int findSubString(int find, int inHere) {
 
         String findStr = Integer.toString(find);
