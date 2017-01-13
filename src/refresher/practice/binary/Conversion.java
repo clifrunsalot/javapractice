@@ -1,130 +1,153 @@
 package refresher.practice.binary;
 
-import java.util.Random;
-
 import refresher.practice.helpers.LogIt;
 
+import java.util.Random;
+
+/**
+ * Demonstrates conversion between decimal and binary formats.
+ * <p>
+ * This uses a byte array of 32 to accommodate the largest
+ * significant digits.
+ */
 public class Conversion {
 
-	// Returns the binary value of decimal number.
-	private static byte[] getBinary(int number) {
+    /**
+     * Returns the binary value of decimal number.
+     *
+     * @param number of type integer.
+     * @return byte [] of 32bits.
+     */
+    private static byte[] getBinary(int number) {
 
-		final int TWO = 2;
-		int remainder = 0;
-		double quotient = 0;
-		int dividend = number;
-		byte[] bits = new byte[32];
-		int idx = 31;
+        final int TWO = 2;
+        int remainder = 0;
+        double quotient = 0;
+        int dividend = number;
+        byte[] bits = new byte[32];
+        int idx = 31;
 
-		do {
-			// get bit
-			remainder = dividend % TWO;
+        do {
+            // get bit
+            remainder = dividend % TWO;
 
-			// get integer part of dividend
-			quotient = dividend / TWO;
+            // get integer part of dividend
+            quotient = dividend / TWO;
 
-			bits[idx--] = (byte) remainder;
+            bits[idx--] = (byte) remainder;
 
-			dividend = (int) Math.floor(quotient);
+            dividend = (int) Math.floor(quotient);
 
-		} while (quotient > 0);
+        } while (quotient > 0);
 
-		return bits;
-	}
+        return bits;
+    }
 
-	// Returns the decimal value of binary number.
-	private static int getDecimal(byte[] binary) {
+    /**
+     * Returns the decimal value of binary number.
+     *
+     * @param binary byte [] of 32 bits.
+     * @return int value.
+     */
+    private static int getDecimal(byte[] binary) {
 
-		int sum = 0;
-		byte[] number = binary;
-		byte remainder = 0;
-		int powerOf2 = 0;
+        int sum = 0;
+        byte[] number = binary;
+        byte remainder = 0;
+        int powerOf2 = 0;
 
-		// Start of least significant.
-		// but use powerOf2 index to manager sum.
-		for (int i = (binary.length - 1); i >= 0; i--, powerOf2++) {
+        // Start of least significant.
+        // but use powerOf2 index to manager sum.
+        for (int i = (binary.length - 1); i >= 0; i--, powerOf2++) {
 
-			remainder = number[i];
-			sum += (int) (remainder * Math.pow(2, powerOf2));
+            remainder = number[i];
+            sum += (int) (remainder * Math.pow(2, powerOf2));
 
-		}
+        }
 
-		return sum;
-	}
+        return sum;
+    }
 
-	// Return length of longest contiguous sequence of 0 in binary.
-	private static int getLongest0SequenceInBinary(byte[] binary) {
+    //
 
-		byte[] number = binary;
-		int count = 0;
-		int curr = 0;
-		int highestCount = 0;
-		boolean start = false;
+    /**
+     * Return length of longest contiguous sequence of 0 in binary.
+     *
+     * @param binary byte[] array of 32bits.
+     * @return int value of the longest 0 sequence.
+     */
+    private static int getLongest0SequenceInBinary(byte[] binary) {
 
-		for (int i = 0; i <= (binary.length-1); i++) {
+        byte[] number = binary;
+        int count = 0;
+        int curr = 0;
+        int highestCount = 0;
+        boolean start = false;
 
-			// get remainder, starting from least significant
-			// we'll call it curr
-			curr = number[i];
+        for (int i = 0; i <= (binary.length - 1); i++) {
 
-			if (curr == 1) {
+            // get remainder, starting from least significant
+            // we'll call it curr
+            curr = number[i];
 
-				// This means the block of zeros ended
-				// evaluate highest count
-				if (start) {
-					highestCount = (highestCount < count) ? count : highestCount;
-					count = 0;
+            if (curr == 1) {
 
-				} else {
+                // This means the block of zeros ended
+                // evaluate highest count
+                if (start) {
+                    highestCount = (highestCount < count) ? count : highestCount;
+                    count = 0;
 
-					// reset flag because we have to start counting again.
-					start = true;
-					count = 0;
-				}
+                } else {
 
-				// go to next remainder
-				continue;
+                    // reset flag because we have to start counting again.
+                    start = true;
+                    count = 0;
+                }
 
-			} else {
+                // go to next remainder
+                continue;
 
-				// Process 0's within block
-				if (!start) {
+            } else {
 
-					// go to next remainder
-					continue;
+                // Process 0's within block
+                if (!start) {
 
-				} else {
+                    // go to next remainder
+                    continue;
 
-					count += 1;
+                } else {
 
-				}
+                    count += 1;
 
-			}
+                }
 
-		}
+            }
 
-		return highestCount;
-	}
+        }
 
-	public static void main(String[] args) {
-		
-	    LogIt logger = new LogIt(Conversion.class.getName());
+        return highestCount;
+    }
 
-		Random random = new Random();
-		int largestRandom = 3000;
-		int value = 0;
-		byte[] binary;
-		int seqCount = 0;
-		for (int i = 0; i < 5; i++) {
-			value = random.nextInt(largestRandom - 1) + 1;
-			binary = getBinary(value);
-			logger.logFunc("getBinary", "" + value, "" + LogIt.toByteString(binary));
-			value = getDecimal(binary);
-			logger.logFunc("getDecimal", "" + LogIt.toByteString(binary), "" + value);
-			seqCount = getLongest0SequenceInBinary(binary);
-			logger.logFunc("getLongest0SequenceInBinary", "" + LogIt.toByteString(binary), "" + seqCount);
-			System.out.println();
+    public static void main(String[] args) {
 
-		}
-	}
+        LogIt logger = new LogIt(Conversion.class.getName());
+
+        Random random = new Random();
+        int largestRandom = 3000;
+        int value = 0;
+        byte[] binary;
+        int seqCount = 0;
+        for (int i = 0; i < 5; i++) {
+            value = random.nextInt(largestRandom - 1) + 1;
+            binary = getBinary(value);
+            logger.logFunc("getBinary", "" + value, "" + LogIt.toByteString(binary));
+            value = getDecimal(binary);
+            logger.logFunc("getDecimal", "" + LogIt.toByteString(binary), "" + value);
+            seqCount = getLongest0SequenceInBinary(binary);
+            logger.logFunc("getLongest0SequenceInBinary", "" + LogIt.toByteString(binary), "" + seqCount);
+            System.out.println();
+
+        }
+    }
 }
