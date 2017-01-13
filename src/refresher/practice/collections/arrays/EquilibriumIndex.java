@@ -1,30 +1,31 @@
 package refresher.practice.collections.arrays;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
-import refresher.practice.binary.Conversion;
 import refresher.practice.helpers.LogIt;
 
+import java.util.ArrayList;
+
+/**
+ * Returns the index of the array with a value that equals the sum of the
+ * rest of the values in the array.
+ * <p>
+ * e.g. [0] [1] [2] [3] [4] [5] [6] [7]
+ * -1   3  -4   5   1  -6   2   1
+ * <p>
+ * Skipping index 1 means that
+ * <p>
+ * a[0] = a[2] + a[3] + a[4] + a[5] + a[6] + a[7]
+ * <p>
+ * findAnIndex([-1, 3, -4, 5, 1, -6, 2, 1]) => 1
+ * findAnIndex([-1, -6, -2, 1, -1, -6, -2]) => 3
+ * findAnIndex([3, 1, -4, 5, -6, 2, 3]) => 2
+ */
 public class EquilibriumIndex {
 
-    /*
-     * Returns the index of the array with a value that equals the sum of the
-     * rest of the values in the array.
+    /**
+     * Returns index of equilibrium value.
      *
-     * e.g. [0] [1] [2] [3] [4] [5] [6] [7]
-     *      -1   3  -4   5   1  -6   2   1
-     *
-     *      Skipping index 1 means that
-     *
-     *      a[0] = a[2] + a[3] + a[4] + a[5] + a[6] + a[7]
-     *
-     * findAnIndex([-1, 3, -4, 5, 1, -6, 2, 1]) => 1
-     * findAnIndex([-1, -6, -2, 1, -1, -6, -2]) => 3
-     * findAnIndex([3, 1, -4, 5, -6, 2, 3]) => 2
-
-     *
-     *
+     * @param inAry int []
+     * @return The index.
      */
     private static int findAnIndex(int[] inAry) {
 
