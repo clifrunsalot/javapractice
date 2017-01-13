@@ -1,15 +1,13 @@
 package refresher.practice.collections.deque;
 
-import java.util.ArrayDeque;
-import java.util.Arrays;
-import java.util.Random;
-
-import refresher.practice.binary.Conversion;
 import refresher.practice.helpers.LogIt;
+
+import java.util.ArrayDeque;
+import java.util.Random;
 
 public class Rotation {
 
-    /* Returns the inAry with element rotated to the right by K places.
+    /** Returns the inAry with element rotated to the right by K places.
      *
      * e.g.
      *
@@ -24,6 +22,10 @@ public class Rotation {
      * rotate([3, 8, 9, 7, 6],2) => [7, 6, 3, 8, 9]
      * rotate([3, 8, 9, 7, 6],5) => [3, 8, 9, 7, 6]
      * rotate([],5) => []
+     *
+     * @param inAry int[] of integers.
+     * @param k The number of positions to rotate right.
+     * @return An int[] after rotation.
      */
     private static int[] rotateWithDeque(int[] inAry, int k) {
 
@@ -83,7 +85,5 @@ public class Rotation {
 
 
     }
-
-    // ( [3, 8, 9, 7, 6],3) => [9, 7, 6, 3, 8].
 
 }
