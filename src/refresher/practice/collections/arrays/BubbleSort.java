@@ -39,28 +39,28 @@ public class BubbleSort {
 
 	public static void main(String[] args) {
 
-	    LogIt logger = new LogIt(BubbleSort.class.getName()).getLogger();
+	    LogIt logger = new LogIt(BubbleSort.class.getName());
 
 		int[] ary1 = { 1, 1, 2, 2, 4, 5, 5, 5, 98, 98 };
-		logger.info("useBubbleSort", LogIt.toIntString(ary1), "" + LogIt.toIntString(useBubbleSort(ary1)));
+		logger.logFunc("useBubbleSort", LogIt.toIntString(ary1), "" + LogIt.toIntString(useBubbleSort(ary1)));
 
 		int[] ary2 = { 3, 3, 6, 6, 7, 8, 8, 9, 9, 9 };
-		logger.info("useBubbleSort", LogIt.toIntString(ary2), "" + LogIt.toIntString(useBubbleSort(ary2)));
+		logger.logFunc("useBubbleSort", LogIt.toIntString(ary2), "" + LogIt.toIntString(useBubbleSort(ary2)));
 
 		int[] ary3 = { 7, 7, 1, 1, 4, 4, 2, 9, 9, 33, 33, 33 };
-		logger.info("useBubbleSort", LogIt.toIntString(ary3), "" + LogIt.toIntString(useBubbleSort(ary3)));
+		logger.logFunc("useBubbleSort", LogIt.toIntString(ary3), "" + LogIt.toIntString(useBubbleSort(ary3)));
 
 		int[] ary4 = { 888, 888, 5, 5, 1, 2, 2, 4, 4 };
-		logger.info("useBubbleSort", LogIt.toIntString(ary4), "" + LogIt.toIntString(useBubbleSort(ary4)));
+		logger.logFunc("useBubbleSort", LogIt.toIntString(ary4), "" + LogIt.toIntString(useBubbleSort(ary4)));
 
 		int[] ary5 = { 77, 65, 65, 3, 3 };
-		logger.info("useBubbleSort", LogIt.toIntString(ary5), "" + LogIt.toIntString(useBubbleSort(ary5)));
+		logger.logFunc("useBubbleSort", LogIt.toIntString(ary5), "" + LogIt.toIntString(useBubbleSort(ary5)));
 
 		int[] ary6 = { 1, 1 };
-		logger.info("useBubbleSort", LogIt.toIntString(ary6), "" + LogIt.toIntString(useBubbleSort(ary6)));
+		logger.logFunc("useBubbleSort", LogIt.toIntString(ary6), "" + LogIt.toIntString(useBubbleSort(ary6)));
 
 		int[] ary7 = new int[0];
-		logger.info("useBubbleSort", LogIt.toIntString(ary7), "" + LogIt.toIntString(useBubbleSort(ary7)));
+		logger.logFunc("useBubbleSort", LogIt.toIntString(ary7), "" + LogIt.toIntString(useBubbleSort(ary7)));
 
 
 	}

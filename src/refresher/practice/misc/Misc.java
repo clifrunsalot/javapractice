@@ -74,24 +74,24 @@ public class Misc {
 
 	public static void main(String[] args) {
 
-		logger.info("getSubstring", "\"" + "woodrose" + "\",\"" + "rose", getSubstring("woodrose", "rose"));
-		logger.info("getSubstring", "\"" + "woodrose" + "\",\"" + "pose", getSubstring("woodrose", "pose"));
+		logger.logFunc("getSubstring", "\"" + "woodrose" + "\",\"" + "rose", getSubstring("woodrose", "rose"));
+		logger.logFunc("getSubstring", "\"" + "woodrose" + "\",\"" + "pose", getSubstring("woodrose", "pose"));
 
-		logger.info("getStringArray", "\"w,o,o,d,r,o,s,e\"", LogIt.toNonPrimString(getStringArray("w,o,o,d,r,o,s,e")));
+		logger.logFunc("getStringArray", "\"w,o,o,d,r,o,s,e\"", LogIt.toNonPrimString(getStringArray("w,o,o,d,r,o,s,e")));
 
-		logger.info("getChoice", "\"one\"", getChoice("one"));
+		logger.logFunc("getChoice", "\"one\"", getChoice("one"));
 
 		// getSortedArray(String[] origAry) {
 		String[] ary = { "one", "two", "three", "four", "five" };
-		logger.info("getSortedArray", LogIt.toNonPrimString(ary), LogIt.toNonPrimString(getSortedArray(ary)));
+		logger.logFunc("getSortedArray", LogIt.toNonPrimString(ary), LogIt.toNonPrimString(getSortedArray(ary)));
 
 		// build2dEquilateralTriangleArray(int side) {
-		logger.info("build2dEquilateralTriangleArray", "8", "");
+		logger.logFunc("build2dEquilateralTriangleArray", "8", "");
 		build2dEquilateralTriangleArray(8);
 
 		// getAverage(double... values) {
 		double[] ary1 = { 7, 6, 5, 4, 8, 9, 0 };
-		logger.info("getAverage", LogIt.toDblString(ary1), "" + getAverage(ary1));
+		logger.logFunc("getAverage", LogIt.toDblString(ary1), "" + getAverage(ary1));
 
 	}
 }

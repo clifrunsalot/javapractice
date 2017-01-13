@@ -55,28 +55,28 @@ public class Unique {
 
 	public static void main(String[] args) {
 
-	    LogIt logger = new LogIt(Unique.class.getName()).getLogger();
+	    LogIt logger = new LogIt(Unique.class.getName());
 	    
 	    int[] ary1 = { 1, 1, 2, 2, 4, 5, 5, 5, 98, 98 };
-		logger.info("findUnpairedValues", LogIt.toIntString(ary1), "" + findUnpairedValues(ary1));
+		logger.logFunc("findUnpairedValues", LogIt.toIntString(ary1), "" + findUnpairedValues(ary1));
 
 		int[] ary2 = { 3, 3, 6, 6, 7, 8, 8, 9, 9, 9 };
-		logger.info("findUnpairedValues", LogIt.toIntString(ary2), "" + findUnpairedValues(ary2));
+		logger.logFunc("findUnpairedValues", LogIt.toIntString(ary2), "" + findUnpairedValues(ary2));
 
 		int[] ary3 = { 7, 7, 1, 1, 4, 4, 2, 9, 9, 33, 33, 33 };
-		logger.info("findUnpairedValues", LogIt.toIntString(ary3), "" + findUnpairedValues(ary3));
+		logger.logFunc("findUnpairedValues", LogIt.toIntString(ary3), "" + findUnpairedValues(ary3));
 
 		int[] ary4 = { 888, 888, 5, 5, 1, 2, 2, 4, 4 };
-		logger.info("findUnpairedValues", LogIt.toIntString(ary4), "" + findUnpairedValues(ary4));
+		logger.logFunc("findUnpairedValues", LogIt.toIntString(ary4), "" + findUnpairedValues(ary4));
 
 		int[] ary5 = { 77, 65, 65, 3, 3 };
-		logger.info("findUnpairedValues", LogIt.toIntString(ary5), "" + findUnpairedValues(ary5));
+		logger.logFunc("findUnpairedValues", LogIt.toIntString(ary5), "" + findUnpairedValues(ary5));
 
 		int[] ary6 = { 1, 1 };
-		logger.info("findUnpairedValues", LogIt.toIntString(ary6), "" + findUnpairedValues(ary6));
+		logger.logFunc("findUnpairedValues", LogIt.toIntString(ary6), "" + findUnpairedValues(ary6));
 
 		int[] ary7 = new int[0];
-		logger.info("findUnpairedValues", LogIt.toIntString(ary7), "" + findUnpairedValues(ary7));
+		logger.logFunc("findUnpairedValues", LogIt.toIntString(ary7), "" + findUnpairedValues(ary7));
 
 	}
 

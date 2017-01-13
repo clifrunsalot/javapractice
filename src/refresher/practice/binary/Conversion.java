@@ -108,7 +108,7 @@ public class Conversion {
 
 	public static void main(String[] args) {
 		
-	    LogIt logger = new LogIt(Conversion.class.getName()).getLogger();
+	    LogIt logger = new LogIt(Conversion.class.getName());
 
 		Random random = new Random();
 		int largestRandom = 3000;
@@ -118,11 +118,11 @@ public class Conversion {
 		for (int i = 0; i < 5; i++) {
 			value = random.nextInt(largestRandom - 1) + 1;
 			binary = getBinary(value);
-			logger.info("getBinary", "" + value, "" + LogIt.toByteString(binary));
+			logger.logFunc("getBinary", "" + value, "" + LogIt.toByteString(binary));
 			value = getDecimal(binary);
-			logger.info("getDecimal", "" + LogIt.toByteString(binary), "" + value);
+			logger.logFunc("getDecimal", "" + LogIt.toByteString(binary), "" + value);
 			seqCount = getLongest0SequenceInBinary(binary);
-			logger.info("getLongest0SequenceInBinary", "" + LogIt.toByteString(binary), "" + seqCount);
+			logger.logFunc("getLongest0SequenceInBinary", "" + LogIt.toByteString(binary), "" + seqCount);
 			System.out.println();
 
 		}
