@@ -2,8 +2,10 @@ package refresher.practice.jdbc;
 
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.Statement;
+import refresher.practice.helpers.AppProperties;
 import refresher.practice.helpers.LogIt;
 
+import java.io.IOException;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -41,11 +43,13 @@ public class Crud {
      * @return Database Connection
      * @throws SQLException Thrown if connection attempt fails.
      */
-    private static Connection getConnection() throws SQLException {
+    private static Connection getConnection() throws SQLException, IOException {
+
+        AppProperties p = new AppProperties();
 
         String URL = "jdbc:mysql://localhost/bedrock";
-        String USER = "***";
-        String PASS = "***";
+        String USER = p.getPropValues().getProperty("user");
+        String PASS = p.getPropValues().getProperty("password");
         Connection conn = (Connection) DriverManager.getConnection(URL, USER, PASS);
         logger.getLogger().info("Connected to database");
         return conn;
@@ -73,21 +77,28 @@ public class Crud {
         try (Connection conn = getConnection()) {
 
             logger.getLogger().info("Database Active: " + isActive());
-            ResultSet rs = readTable(conn, "Employee");
 
-            while (rs.next()) {
-                int id = rs.getInt("id");
-                int age = rs.getInt("age");
-                String first = rs.getString("first");
-                String last = rs.getString("last");
+            if (isActive()) {
+                ResultSet rs = readTable(conn, "Employee");
 
-                logger.getLogger().info(String.format("%4d %4d %10s %10s", id, age, first, last));
+                while (rs.next()) {
+                    int id = rs.getInt("id");
+                    int age = rs.getInt("age");
+                    String first = rs.getString("first");
+                    String last = rs.getString("last");
+
+                    logger.getLogger().info(String.format("%4d %4d %10s %10s", id, age, first, last));
+                }
+
+                conn.close();
+            } else {
+                logger.getLogger().log(Level.WARNING, "Database is Active: " + isActive());
             }
-
-            conn.close();
 
         } catch (SQLException sqle) {
             logger.getLogger().log(Level.SEVERE, sqle.getMessage());
+        } catch (IOException e) {
+            logger.getLogger().log(Level.SEVERE, e.getMessage());
         }
     }
 }
