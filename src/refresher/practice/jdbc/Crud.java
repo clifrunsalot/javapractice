@@ -1,6 +1,7 @@
 package refresher.practice.jdbc;
 
-import com.mysql.jdbc.*;
+import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.Statement;
 import refresher.practice.helpers.LogIt;
 
 import java.sql.DriverManager;
@@ -43,8 +44,8 @@ public class Crud {
     private static Connection getConnection() throws SQLException {
 
         String URL = "jdbc:mysql://localhost/bedrock";
-        String USER = "****";
-        String PASS = "****";
+        String USER = "***";
+        String PASS = "***";
         Connection conn = (Connection) DriverManager.getConnection(URL, USER, PASS);
         logger.getLogger().info("Connected to database");
         return conn;
