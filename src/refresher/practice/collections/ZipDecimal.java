@@ -16,41 +16,35 @@ public class ZipDecimal {
      */
     private static int zipIt(int A, int B) {
 
+        char[] aAry = Integer.toString(A).toCharArray();
+        char[] bAry = Integer.toString(B).toCharArray();
+
+        int totalLen = aAry.length + bAry.length;
+
+        int aIdx = 0;
+        int bIdx = 0;
+
         StringBuilder sb = new StringBuilder();
-        String aStr = Integer.toString(A);
-        String bStr = Integer.toString(B);
 
-        int totalLen = aStr.length() + bStr.length();
+        for (int i = 0; i < totalLen; i++) {
 
-        boolean stop = false;
+            if (aIdx < aAry.length) {
 
-        while (!stop) {
-
-            for (int i = 0; i < totalLen; i++) {
-
-                if (i < aStr.length())
-                    sb.append(aStr.charAt(i));
-                else {
-                    if (i <= (bStr.length() - 1)) {
-                        sb.append(bStr.substring(i));
-                        stop = true;
-                        break;
-                    }
-                }
-
-                if (i < bStr.length())
-                    sb.append(bStr.charAt(i));
-                else {
-                    if (i <= (aStr.length() - 1))
-                        sb.append(aStr.substring(i));
-                    stop = true;
-                    break;
-                }
+                sb.append(aAry[aIdx]);
+                aIdx += 1;
 
             }
-            if (stop)
-                break;
 
+            if (bIdx < bAry.length) {
+
+                sb.append(bAry[bIdx]);
+                bIdx += 1;
+
+            }
+
+            if (sb.length() == totalLen) {
+                break;
+            }
         }
 
         return Integer.parseInt(sb.toString());
@@ -65,11 +59,12 @@ public class ZipDecimal {
         int B = 53;
         logger.logFunc("zipIt", A + "," + B, "" + zipIt(A, B));
 
+        A = 567;
         B = 1234;
         logger.logFunc("zipIt", A + "," + B, "" + zipIt(A, B));
 
-        A = 1357;
-        B = 0;
+        A = 1234;
+        B = 567;
         logger.logFunc("zipIt", A + "," + B, "" + zipIt(A, B));
 
         A = 1357;
