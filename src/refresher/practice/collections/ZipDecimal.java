@@ -60,7 +60,7 @@ public class ZipDecimal {
 
             } else {
 
-                logger.getLogger().log(Level.SEVERE,"Arguments must be > 0");
+                logger.getLogger().log(Level.SEVERE,"Argument(s) must be > 0");
             }
 
         } catch (IllegalArgumentException iae) {
