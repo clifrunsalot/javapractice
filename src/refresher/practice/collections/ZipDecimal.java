@@ -4,6 +4,8 @@ import refresher.practice.helpers.LogIt;
 
 import java.util.logging.Level;
 
+import static javax.swing.text.html.HTML.Tag.HEAD;
+
 public class ZipDecimal {
 
     static LogIt logger = new LogIt(ZipDecimal.class.getName());
@@ -60,7 +62,7 @@ public class ZipDecimal {
 
             } else {
 
-                logger.getLogger().log(Level.SEVERE,"Arguments must be > 0");
+                logger.getLogger().log(Level.SEVERE,"Argument(s) must be > 0");
                 throw new IllegalArgumentException("Arguments must be > 0");
             }
 
