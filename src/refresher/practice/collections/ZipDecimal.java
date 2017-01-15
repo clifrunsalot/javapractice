@@ -18,7 +18,7 @@ public class ZipDecimal {
      * @param B An integer.
      * @return An integer merged from A and B.
      */
-    private static int zipIt(int A, int B) {
+    public static int zipIt(int A, int B) {
 
         int result = -1;
         StringBuilder sb = new StringBuilder();
@@ -61,11 +61,13 @@ public class ZipDecimal {
             } else {
 
                 logger.getLogger().log(Level.SEVERE,"Arguments must be > 0");
+                throw new IllegalArgumentException("Arguments must be > 0");
             }
 
         } catch (IllegalArgumentException iae) {
 
             logger.getLogger().log(Level.SEVERE, "Zipped value exceeds capacity of an int type. Use smaller values.");
+            throw new IllegalArgumentException("Zipped value exceeds capacity of an int type. Use smaller values.");
 
         }
 
@@ -99,10 +101,6 @@ public class ZipDecimal {
         B = 2;
         logger.logFunc("zipIt", A + "," + B, "" + zipIt(A, B));
 
-        A = 999999999;
-        B = 999999999;
-        logger.logFunc("zipIt", A + "," + B, "" + zipIt(A, B));
-
         A = 99999;
         B = 9999;
         logger.logFunc("zipIt", A + "," + B, "" + zipIt(A, B));
@@ -110,6 +108,11 @@ public class ZipDecimal {
         A = -99999;
         B = 9999;
         logger.logFunc("zipIt", A + "," + B, "" + zipIt(A, B));
+
+        A = 999999999;
+        B = 999999999;
+        logger.logFunc("zipIt", A + "," + B, "" + zipIt(A, B));
+
     }
 
 }
