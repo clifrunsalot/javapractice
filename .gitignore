@@ -1,5 +1,9 @@
 *.class
 .idea
-
 out
 javapractice.iml
+.project
+.classpath
+bin
+.settings
+
