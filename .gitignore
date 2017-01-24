@@ -6,4 +6,5 @@ javapractice.iml
 .classpath
 bin
 .settings
+.metadata
 
